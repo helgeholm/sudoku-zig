@@ -39,9 +39,9 @@ fn solve(board: *Board) bool {
     for (0..9) |row| {
         const sRow = square(row);
         for (0..9) |col| {
+            if (board.get(row, col) != 0)
+                continue;
             const sCol = square(col);
-            const v = board.get(row, col);
-            if (v != 0) continue;
             var opts = [_]bool{true} ** 10;
             for (0..9) |otherRow| {
                 if (row == otherRow) {
